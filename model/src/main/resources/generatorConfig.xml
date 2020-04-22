@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+
+<!--    <properties resource="datasource.properties"></properties>-->
+
+
+    <classPathEntry location="C:/Users/jack_yang/.m2/repository/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar" />
+
+
+    <!-- 一个数据库一个context -->
+    <context id="infoGuardian">
+        <!-- 	控制实体类生成toString()方法 -->
+<!--        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />-->
+
+        <!-- 注释 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- jdbc连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.10.14.39:3306/demo?useSSL=false"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 生成模型的包名和位置-->
+        <javaModelGenerator targetPackage="com.chinaentropy.model.domain" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成映射文件的包名和位置-->
+        <sqlMapGenerator targetPackage="com.chinaentropy.model.mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.chinaentropy.model.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="device" domainObjectName="Device" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+<!--        <table tableName="ai_algorithm_hour_stat" domainObjectName="AiAlgorithmHourStat"/>-->
+<!--        <table tableName="ai_algorithm_invoking" domainObjectName="AiAlgorithmInvoking"/>-->
+<!--        <table tableName="base_certificate" domainObjectName="BaseCertificate"/>-->
+<!--        <table tableName="base_policy" domainObjectName="BasePolicy"/>-->
+<!--        <table tableName="base_policy_item" domainObjectName="BasePolicyItem"/>-->
+<!--        <table tableName="base_product_act_device" domainObjectName="BaseProductActDevice"/>-->
+<!--        <table tableName="base_product_alarm_condition" domainObjectName="BaseProductAlarmCondition"/>-->
+<!--        <table tableName="base_product_alarm_notify" domainObjectName="BaseProductAlarmNotify"/>-->
+<!--        <table tableName="base_product_alarm_rule" domainObjectName="BaseProductAlarmRule"/>-->
+<!--        <table tableName="base_product_alarm_rule_device" domainObjectName="BaseProductAlarmRuleDevice"/>-->
+<!--        <table tableName="base_product_react_action" domainObjectName="BaseProductReactAction"/>-->
+<!--        <table tableName="base_product_react_condition" domainObjectName="BaseProductReactCondition"/>-->
+<!--        <table tableName="base_product_react_device" domainObjectName="BaseProductReactDevice"/>-->
+<!--        <table tableName="base_product_react_notify" domainObjectName="BaseProductReactNotify"/>-->
+<!--        <table tableName="base_product_react_rule" domainObjectName="BaseProductReactRule"/>-->
+<!--        <table tableName="base_product_react_week" domainObjectName="BaseProductReactWeek"/>-->
+<!--        <table tableName="base_product_sub_condition" domainObjectName="BaseProductSubCondition"/>-->
+<!--        <table tableName="base_product_sub_field" domainObjectName="BaseProductSubField"/>-->
+<!--        <table tableName="base_product_sub_rule" domainObjectName="BaseProductSubRule"/>-->
+<!--        <table tableName="base_product_sub_rule_device" domainObjectName="BaseProductSubRuleDevice"/>-->
+<!--        <table tableName="base_product_timing_device" domainObjectName="BaseProductTimingDevice"/>-->
+<!--        <table tableName="base_product_timing_task" domainObjectName="BaseProductTimingTask"/>-->
+<!--        <table tableName="base_product_timing_task_data" domainObjectName="BaseProductTimingTaskData"/>-->
+<!--        <table tableName="base_product_timing_task_week" domainObjectName="BaseProductTimingTaskWeek"/>-->
+<!--        <table tableName="bus_app" domainObjectName="BusApp"/>-->
+<!--        <table tableName="bus_app_flow" domainObjectName="BusAppFlow"/>-->
+<!--        <table tableName="bus_app_month_data" domainObjectName="BusAppMonthData"/>-->
+<!--        <table tableName="bus_data_speed" domainObjectName="BusDataSpeed"/>-->
+<!--        <table tableName="bus_device" domainObjectName="BusDevice"/>-->
+<!--        <table tableName="bus_device_child" domainObjectName="BusDeviceChild"/>-->
+<!--        <table tableName="bus_device_event" domainObjectName="BusDeviceEvent"/>-->
+<!--        <table tableName="bus_device_gateway_realdata" domainObjectName="BusDeviceGatewayRealdata"/>-->
+<!--        <table tableName="bus_device_group" domainObjectName="BusDeviceGroup"/>-->
+<!--        <table tableName="bus_device_group_devices" domainObjectName="BusDeviceGroupDevices"/>-->
+<!--        <table tableName="bus_device_group_tag" domainObjectName="BusDeviceGroupTag"/>-->
+<!--        <table tableName="bus_device_remote_config" domainObjectName="BusDeviceRemoteConfig"/>-->
+<!--        <table tableName="bus_device_service" domainObjectName="BusDeviceService"/>-->
+<!--        <table tableName="bus_device_shadow" domainObjectName="BusDeviceShadow"/>-->
+<!--        <table tableName="bus_device_tag" domainObjectName="BusDeviceTag"/>-->
+<!--        <table tableName="bus_device_terminal_realdata" domainObjectName="BusDeviceTerminalRealdata"/>-->
+<!--        <table tableName="bus_device_tmp" domainObjectName="BusDeviceTmp"/>-->
+<!--        <table tableName="bus_device_topic" domainObjectName="BusDeviceTopic"/>-->
+<!--        <table tableName="bus_device_upfile" domainObjectName="BusDeviceUpfile"/>-->
+<!--        <table tableName="bus_dtu_device" domainObjectName="BusDtuDevice"/>-->
+<!--        <table tableName="bus_industry_month_data" domainObjectName="BusIndustryMonthData"/>-->
+<!--        <table tableName="bus_industry_realflow" domainObjectName="BusIndustryRealflow"/>-->
+<!--        <table tableName="bus_industry_totalflow" domainObjectName="BusIndustryTotalflow"/>-->
+<!--        <table tableName="bus_net_month_data" domainObjectName="BusNetMonthData"/>-->
+<!--        <table tableName="bus_product" domainObjectName="BusProduct"/>-->
+<!--        <table tableName="bus_product_event" domainObjectName="BusProductEvent"/>-->
+<!--        <table tableName="bus_product_event_parm" domainObjectName="BusProductEventParm"/>-->
+<!--        <table tableName="bus_product_event_parm_enu" domainObjectName="BusProductEventParmEnu"/>-->
+<!--        <table tableName="bus_product_firmware" domainObjectName="BusProductFirmware"/>-->
+<!--        <table tableName="bus_product_function_template" domainObjectName="BusProductFunctionTemplate"/>-->
+<!--        <table tableName="bus_product_gateway_model" domainObjectName="BusProductGatewayModel"/>-->
+<!--        <table tableName="bus_product_gateway_subscribe" domainObjectName="BusProductGatewaySubscribe"/>-->
+<!--        <table tableName="bus_product_mqtt_parser" domainObjectName="BusProductMqttParser"/>-->
+<!--        <table tableName="bus_product_parser" domainObjectName="BusProductParser"/>-->
+<!--        <table tableName="bus_product_parser_script_template" domainObjectName="BusProductParserScriptTemplate"/>-->
+<!--        <table tableName="bus_product_property" domainObjectName="BusProductProperty"/>-->
+<!--        <table tableName="bus_product_property_enu" domainObjectName="BusProductPropertyEnu"/>-->
+<!--        <table tableName="bus_product_property_enu_template" domainObjectName="BusProductPropertyEnuTemplate"/>-->
+<!--        <table tableName="bus_product_property_template" domainObjectName="BusProductPropertyTemplate"/>-->
+<!--        <table tableName="bus_product_remote_config" domainObjectName="BusProductRemoteConfig"/>-->
+<!--        <table tableName="bus_product_service" domainObjectName="BusProductService"/>-->
+<!--        <table tableName="bus_product_service_parm" domainObjectName="BusProductServiceParm"/>-->
+<!--        <table tableName="bus_product_service_parm_enu" domainObjectName="BusProductServiceParmEnu"/>-->
+<!--        <table tableName="bus_product_tag" domainObjectName="BusProductTag"/>-->
+<!--        <table tableName="bus_product_terminal_model" domainObjectName="BusProductTerminalModel"/>-->
+<!--        <table tableName="bus_product_terminal_subscribe" domainObjectName="BusProductTerminalSubscribe"/>-->
+<!--        <table tableName="bus_product_topic" domainObjectName="BusProductTopic"/>-->
+<!--        <table tableName="bus_product_topic_template" domainObjectName="BusProductTopicTemplate"/>-->
+<!--        <table tableName="bus_realtime_stat_data" domainObjectName="BusRealtimeStatData"/>-->
+<!--        <table tableName="bus_sum_stat_data" domainObjectName="BusSumStatData"/>-->
+<!--        <table tableName="bus_tcp_access_template" domainObjectName="BusTcpAccessTemplate"/>-->
+<!--        <table tableName="bus_vendor" domainObjectName="BusVendor"/>-->
+<!--        <table tableName="bus_vendor_app" domainObjectName="BusVendorApp"/>-->
+<!--        <table tableName="bus_vendor_app_devicegroup" domainObjectName="BusVendorAppDevicegroup"/>-->
+<!--        <table tableName="edge_function" domainObjectName="EdgeFunction"/>-->
+<!--        <table tableName="edge_function_storage" domainObjectName="EdgeFunctionStorage"/>-->
+<!--        <table tableName="edge_function_template" domainObjectName="EdgeFunctionTemplate"/>-->
+<!--        <table tableName="edge_kernel" domainObjectName="EdgeKernel"/>-->
+<!--        <table tableName="edge_kernel_storage" domainObjectName="EdgeKernelStorage"/>-->
+<!--        <table tableName="edge_module" domainObjectName="EdgeModule"/>-->
+<!--        <table tableName="edge_service" domainObjectName="EdgeService"/>-->
+<!--        <table tableName="edge_service_kernel" domainObjectName="EdgeServiceKernel"/>-->
+<!--        <table tableName="edge_service_template" domainObjectName="EdgeServiceTemplate"/>-->
+<!--        <table tableName="edge_storage_template" domainObjectName="EdgeStorageTemplate"/>-->
+<!--        <table tableName="edge_storage_version" domainObjectName="EdgeStorageVersion"/>-->
+<!--        <table tableName="edge_storage_volume" domainObjectName="EdgeStorageVolume"/>-->
+<!--        <table tableName="edge_template" domainObjectName="EdgeTemplate"/>-->
+<!--        <table tableName="edge_template_storage" domainObjectName="EdgeTemplateStorage"/>-->
+<!--        <table tableName="media_camera_info" domainObjectName="MediaCameraInfo"/>-->
+<!--        <table tableName="media_device_day_stat" domainObjectName="MediaDeviceDayStat"/>-->
+<!--        <table tableName="media_device_hisday_stat" domainObjectName="MediaDeviceHisdayStat"/>-->
+<!--        <table tableName="media_device_hishour_stat" domainObjectName="MediaDeviceHishourStat"/>-->
+<!--        <table tableName="media_device_hour_stat" domainObjectName="MediaDeviceHourStat"/>-->
+<!--        <table tableName="media_device_info" domainObjectName="MediaDeviceInfo"/>-->
+<!--        <table tableName="media_device_track" domainObjectName="MediaDeviceTrack"/>-->
+<!--        <table tableName="media_dss" domainObjectName="MediaDss"/>-->
+<!--        <table tableName="media_nvr" domainObjectName="MediaNvr"/>-->
+<!--        <table tableName="stat_device_day_count" domainObjectName="StatDeviceDayCount"/>-->
+<!--        <table tableName="stat_device_event_count" domainObjectName="StatDeviceEventCount"/>-->
+<!--        <table tableName="stat_device_event_rank" domainObjectName="StatDeviceEventRank"/>-->
+<!--        <table tableName="stat_device_life_cycle" domainObjectName="StatDeviceLifeCycle"/>-->
+<!--        <table tableName="stat_device_month_count" domainObjectName="StatDeviceMonthCount"/>-->
+<!--        <table tableName="stat_device_offline_rank" domainObjectName="StatDeviceOfflineRank"/>-->
+<!--        <table tableName="stat_device_online_rank" domainObjectName="StatDeviceOnlineRank"/>-->
+<!--        <table tableName="stat_device_realtime_count" domainObjectName="StatDeviceRealtimeCount"/>-->
+<!--        <table tableName="sys_admin_area" domainObjectName="SysAdminArea"/>-->
+<!--        <table tableName="sys_admin_area_test" domainObjectName="SysAdminAreaTest"/>-->
+<!--        <table tableName="sys_function" domainObjectName="SysFunction"/>-->
+<!--        <table tableName="sys_industry" domainObjectName="SysIndustry"/>-->
+<!--        <table tableName="sys_notice" domainObjectName="SysNotice"/>-->
+<!--        <table tableName="sys_notice_detail" domainObjectName="SysNoticeDetail"/>-->
+<!--        <table tableName="sys_role" domainObjectName="SysRole"/>-->
+<!--        <table tableName="sys_role_right" domainObjectName="SysRoleRight"/>-->
+<!--        <table tableName="sys_user" domainObjectName="SysUser"/>-->
+<!--        <table tableName="sys_user_log" domainObjectName="SysUserLog"/>-->
+<!--        <table tableName="bus_product_parser_script" domainObjectName="BusProductParserScript">-->
+<!--            <columnOverride column="up_script" jdbcType="VARCHAR" />-->
+<!--            <columnOverride column="down_script" jdbcType="VARCHAR" />-->
+<!--        </table>-->
+    </context>
+</generatorConfiguration>

@@ -11,12 +11,28 @@
     <groupId>com.chinaentropy</groupId>
     <artifactId>sensor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>sensor</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
+        <skipTests>true</skipTests>
+        <spring.starter.version>2.2.6.RELEASE</spring.starter.version>
     </properties>
+
+    <!--声明子模块-->
+    <modules>
+        <module>ai</module>
+        <module>config</module>
+        <module>device</module>
+        <module>display</module>
+        <module>edge</module>
+        <module>media</module>
+        <module>model</module>
+        <module>operate</module>
+    </modules>
+
 
     <dependencies>
         <dependency>
@@ -40,8 +56,13 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>

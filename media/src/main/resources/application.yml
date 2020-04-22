@@ -1,0 +1,13 @@
+server:
+  port: 8091
+
+#公共配置与profiles选择无关
+mybatis:
+  typeAliasesPackage: com.chinaentropy.media.domain
+  mapperLocations: classpath:com.chinaentropy.media.mapper/*.xml
+
+
+#默认使用配置
+spring:
+  profiles:
+    active: test

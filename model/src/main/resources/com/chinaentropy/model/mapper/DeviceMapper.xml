@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinaentropy.model.mapper.DeviceMapper">
+  <resultMap id="BaseResultMap" type="com.chinaentropy.model.domain.Device">
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="device_num" jdbcType="INTEGER" property="deviceNum" />
+    <result column="device_name" jdbcType="VARCHAR" property="deviceName" />
+    <result column="province_id" jdbcType="INTEGER" property="provinceId" />
+    <result column="city_id" jdbcType="INTEGER" property="cityId" />
+    <result column="district_id" jdbcType="INTEGER" property="districtId" />
+    <result column="longitude" jdbcType="DECIMAL" property="longitude" />
+    <result column="latitude" jdbcType="DECIMAL" property="latitude" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="port" jdbcType="INTEGER" property="port" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="terminal_id" jdbcType="INTEGER" property="terminalId" />
+    <result column="station_id" jdbcType="CHAR" property="stationId" />
+    <result column="last_time" jdbcType="TIMESTAMP" property="lastTime" />
+    <result column="dss_device_id" jdbcType="VARCHAR" property="dssDeviceId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, device_num, device_name, province_id, city_id, district_id, longitude, latitude, 
+    address, type, status, add_time, ip, port, username, password, terminal_id, station_id, 
+    last_time, dss_device_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from device
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from device
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.chinaentropy.model.domain.Device">
+    insert into device (id, device_num, device_name, 
+      province_id, city_id, district_id, 
+      longitude, latitude, address, 
+      type, status, add_time, 
+      ip, port, username, 
+      password, terminal_id, station_id, 
+      last_time, dss_device_id)
+    values (#{id,jdbcType=CHAR}, #{deviceNum,jdbcType=INTEGER}, #{deviceName,jdbcType=VARCHAR}, 
+      #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{districtId,jdbcType=INTEGER}, 
+      #{longitude,jdbcType=DECIMAL}, #{latitude,jdbcType=DECIMAL}, #{address,jdbcType=VARCHAR}, 
+      #{type,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{ip,jdbcType=VARCHAR}, #{port,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{terminalId,jdbcType=INTEGER}, #{stationId,jdbcType=CHAR}, 
+      #{lastTime,jdbcType=TIMESTAMP}, #{dssDeviceId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinaentropy.model.domain.Device">
+    insert into device
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="deviceNum != null">
+        device_num,
+      </if>
+      <if test="deviceName != null">
+        device_name,
+      </if>
+      <if test="provinceId != null">
+        province_id,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="districtId != null">
+        district_id,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="port != null">
+        port,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="terminalId != null">
+        terminal_id,
+      </if>
+      <if test="stationId != null">
+        station_id,
+      </if>
+      <if test="lastTime != null">
+        last_time,
+      </if>
+      <if test="dssDeviceId != null">
+        dss_device_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="deviceNum != null">
+        #{deviceNum,jdbcType=INTEGER},
+      </if>
+      <if test="deviceName != null">
+        #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="districtId != null">
+        #{districtId,jdbcType=INTEGER},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalId != null">
+        #{terminalId,jdbcType=INTEGER},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=CHAR},
+      </if>
+      <if test="lastTime != null">
+        #{lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dssDeviceId != null">
+        #{dssDeviceId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinaentropy.model.domain.Device">
+    update device
+    <set>
+      <if test="deviceNum != null">
+        device_num = #{deviceNum,jdbcType=INTEGER},
+      </if>
+      <if test="deviceName != null">
+        device_name = #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null">
+        province_id = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="districtId != null">
+        district_id = #{districtId,jdbcType=INTEGER},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        port = #{port,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalId != null">
+        terminal_id = #{terminalId,jdbcType=INTEGER},
+      </if>
+      <if test="stationId != null">
+        station_id = #{stationId,jdbcType=CHAR},
+      </if>
+      <if test="lastTime != null">
+        last_time = #{lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dssDeviceId != null">
+        dss_device_id = #{dssDeviceId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinaentropy.model.domain.Device">
+    update device
+    set device_num = #{deviceNum,jdbcType=INTEGER},
+      device_name = #{deviceName,jdbcType=VARCHAR},
+      province_id = #{provinceId,jdbcType=INTEGER},
+      city_id = #{cityId,jdbcType=INTEGER},
+      district_id = #{districtId,jdbcType=INTEGER},
+      longitude = #{longitude,jdbcType=DECIMAL},
+      latitude = #{latitude,jdbcType=DECIMAL},
+      address = #{address,jdbcType=VARCHAR},
+      type = #{type,jdbcType=TINYINT},
+      status = #{status,jdbcType=TINYINT},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      ip = #{ip,jdbcType=VARCHAR},
+      port = #{port,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      terminal_id = #{terminalId,jdbcType=INTEGER},
+      station_id = #{stationId,jdbcType=CHAR},
+      last_time = #{lastTime,jdbcType=TIMESTAMP},
+      dss_device_id = #{dssDeviceId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+
+  <select id="getList" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from device
+  </select>
+</mapper>
